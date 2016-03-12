@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script>
+      function xhrPost() {
+        var data = {"name":"John", "time":"2pm"};
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === 4) {
+            console.log(this.responseText);
+          }
+        });
+
+        xhr.open("POST", "http://192.168.1.109:8080/addUser");
+        xhr.setRequestHeader("cache-control", "no-cache");
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(data));
+      }
+    </script>
+  </head>
+
+  <body onload="xhrPost()">
+    <ol>
+      <li><a href="burstfly/index.html">burstfly</a></li>
+      <li><a href="freelancer/index.html">freelancer</a></li>
+      <li><a href="MarkUps-Rex/Rex/index.html">MarkUps-Rex</a></li>
+      <li><a href="tempo/index.html">tempo</a></li>
+    </ol>
+  </body>
+</html>
